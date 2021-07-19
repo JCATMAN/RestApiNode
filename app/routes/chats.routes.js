@@ -1,6 +1,7 @@
 module.exports = app => {
     const contacts = require("../controllers/contact.controller");
     const chats = require("../controllers/chat.controller");
+    const admins = require("../controllers/admin.controller");
     const messages = require("../controllers/message.controller");
 
     var router = require("express").Router();

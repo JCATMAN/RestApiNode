@@ -1,11 +1,11 @@
 const db = require("../models");
-const Chat = db.Chat;
+const Admin = db.Admin;
 const Op = db.Sequelize.Op;
 
 // Chat controllers
 exports.findAll = (req, res) => {
-    const idChat = req.query.idChat;
-    var condition = idChat ? { idChat: { [Op.like]: `%${idChat}%` } } : null;
+    const idAdmin = req.query.idAdmin;
+    var condition = idAdmin ? { idAdmin: { [Op.like]: `%${idAdmin}%` } } : null;
   
     Chat.findAll({ where: condition })
       .then(data => {
@@ -14,8 +14,7 @@ exports.findAll = (req, res) => {
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving chats."
+            err.message || "Some error occurred while retrieving admins."
         });
       });
   };
-

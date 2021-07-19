@@ -4,8 +4,8 @@ const Op = db.Sequelize.Op;
 
 // Contacts controllers
 exports.findAll = (req, res) => {
-    const id = req.query.id;
-    var condition = id ? { id: { [Op.like]: `%${id}%` } } : null;
+    const idContact = req.query.idContact;
+    var condition = idContact ? { idContact: { [Op.like]: `%${idContact}%` } } : null;
   
     Contact.findAll({ where: condition })
       .then(data => {
