@@ -2,11 +2,14 @@ module.exports = (sequelize, Sequelize) => {
 
     // Define Chats table
   const chats = sequelize.define("chats", {
-    id: {
+    idChat: {
       type: Sequelize.INTEGER,
       primaryKey: true
     },
-    userId: {
+    idContact: {
+      type: Sequelize.INTEGER
+    },
+    idAdmin: {
       type: Sequelize.INTEGER
     },
   },{

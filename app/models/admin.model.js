@@ -1,8 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
 
-    // Define Contacts table
-    const Contact = sequelize.define("contacts", {
-      idContact: {
+    // Define Admin table
+    const Admin = sequelize.define("admin", {
+      idAdmin: {
         type: Sequelize.INTEGER,
         primaryKey: true
       },
@@ -25,6 +25,6 @@ module.exports = (sequelize, Sequelize) => {
       timestamps: false,
     });
   
-    return Contact;
+    return Admin;
     
   };

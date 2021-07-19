@@ -12,12 +12,15 @@ module.exports = (sequelize, Sequelize) => {
    time: {
      type: Sequelize.DATE
    },
-   id: {
+   idContact: {
      type: Sequelize.INTEGER
    },
+   idAdmin: {
+    type: Sequelize.INTEGER
+  },
    idChat: {
      type: Sequelize.INTEGER
-   },
+   }
  },{
   timestamps: false,
 });
