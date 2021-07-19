@@ -3,6 +3,7 @@ module.exports = app => {
     const chats = require("../controllers/chat.controller");
     const admins = require("../controllers/admin.controller");
     const messages = require("../controllers/message.controller");
+    const Twilio = require("../api/twilio.helper");
 
     var router = require("express").Router();
 
@@ -23,4 +24,15 @@ module.exports = app => {
     router.get("/message", messages.findAll);
 
     app.use('/api/messages', router);
+
+    // Twilio router
+    // Retrieve message
+    router.post('/', async (req, res) => {
+
+        let message = req.body.Body;
+        let senderID = req.body.From;
+        await Twilio.sendMessage(message, senderID);
+    });
+
+    app.use('/api/twilio', router);
 };
