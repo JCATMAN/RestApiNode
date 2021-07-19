@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
    time: {
      type: Sequelize.DATE
    },
-   senderId: {
+   id: {
      type: Sequelize.INTEGER
    },
    idChat: {
@@ -21,7 +21,7 @@ module.exports = (sequelize, Sequelize) => {
  },{
   timestamps: false,
 });
- 
+
  return Message;
  
 };

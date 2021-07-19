@@ -22,4 +22,14 @@ db.Chat = require("./chat.model")(sequelize, Sequelize);
 db.Contact = require("./contact.model")(sequelize, Sequelize);
 db.Message = require("./message.model")(sequelize, Sequelize);
 
+// Id_FK Contact => Message
+db.Contact.hasMany(db.Message, {
+  foreignKey: "id",
+  onDelete: 'CASCADE',
+  onCreate: 'CASCADE'
+});
+db.Message.belongsTo(db.Contact, {
+  foreignKey: "id"
+});
+
 module.exports = db;
