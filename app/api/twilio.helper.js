@@ -16,7 +16,7 @@ const sendMessage = async (message, senderID) => {
         });
     } catch (error) {
         console.log(`Error at sendMessage --> ${error}`);
-    }
+    } 
 };
 
 module.exports = {
