@@ -4,7 +4,8 @@ module.exports = (sequelize, Sequelize) => {
     const Contact = sequelize.define("contacts", {
       idContact: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
       },
       fullname: {
         type: Sequelize.STRING

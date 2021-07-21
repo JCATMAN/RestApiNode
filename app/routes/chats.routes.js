@@ -38,6 +38,21 @@ module.exports = app => {
         let message = req.body.Body;
         let senderID = req.body.From;
 
+        const user = await contacts.findOrCreate({
+            where: { fullname: senderID },
+            default: {
+                fullname: senderID,
+                role: "Test",
+                about: "Test",
+                avatar: "Test",
+                status: "Test"
+            }
+        });
+
+        console.log("router", user);
+        // console.log(created);
+
+
         console.log(message);
         console.log(senderID);
 
