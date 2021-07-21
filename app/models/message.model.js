@@ -4,7 +4,8 @@ module.exports = (sequelize, Sequelize) => {
  const Message = sequelize.define("messages", {
    idMessage: {
      type: Sequelize.INTEGER,
-     primaryKey: true
+     primaryKey: true,
+     autoIncrement: true
    },
    message: {
      type: Sequelize.STRING

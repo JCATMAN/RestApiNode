@@ -4,7 +4,8 @@ module.exports = (sequelize, Sequelize) => {
   const chats = sequelize.define("chats", {
     idChat: {
       type: Sequelize.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     idContact: {
       type: Sequelize.INTEGER
