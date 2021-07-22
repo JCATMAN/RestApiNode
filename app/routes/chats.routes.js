@@ -42,10 +42,12 @@ module.exports = app => {
             where: { fullname: senderID },
             default: {
                 fullname: senderID,
-                role: "Test",
-                about: "Test",
-                avatar: "Test",
-                status: "Test"
+            }
+        });
+        const user = await contacts.findOrCreate({
+            where: { idContact: senderID },
+            default: {
+                fullname: senderID,
             }
         });
 
