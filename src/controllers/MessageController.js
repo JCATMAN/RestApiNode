@@ -18,19 +18,19 @@ export default class ContactController {
   async sendMessage(message, senderId) {
     switch (message.toLowerCase()) {
       case "hola":
-        await sendMessage(message["hola"], senderId);
+        await sendMessage(messageHelper["hola"], senderId);
         break;
       case "quiero un auto":
-        await sendMessage(message["hola"], senderId);
+        await sendMessage(messageHelper["hola"], senderId);
         break;
       case "grande":
-        await sendMessage(message["hola"], senderId);
+        await sendMessage(messageHelper["hola"], senderId);
         break;
       case "para mañana":
-        await sendMessage(message["hola"], senderId);
+        await sendMessage(messageHelper["hola"], senderId);
         break;
       case "mañana":
-        await sendMessage(message["hola"], senderId);
+        await sendMessage(messageHelper["hola"], senderId);
         break;
       default:
         throw "No es una pregunta disponible";
