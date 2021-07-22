@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "rndxaueb",
+    "password": "KhzP3VjeQVjgwU8Dv8gswF-lsF2JTemo",
+    "database": "rndxaueb",
+    "host": "hattie.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "rndxaueb",
+    "password": "KhzP3VjeQVjgwU8Dv8gswF-lsF2JTemo",
+    "database": "rndxaueb",
+    "host": "hattie.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "rndxaueb",
+    "password": "KhzP3VjeQVjgwU8Dv8gswF-lsF2JTemo",
+    "database": "rndxaueb",
+    "host": "hattie.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}
