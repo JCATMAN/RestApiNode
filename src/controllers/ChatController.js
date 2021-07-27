@@ -12,4 +12,8 @@ export default class ChatController {
   async findAllChats() {
     return await this.chatService.findAll();
   }
+
+  async findOrCreateChats() {
+    await this.chatService.findOrCreate(contactId);
+  }
 }

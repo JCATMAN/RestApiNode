@@ -5,4 +5,14 @@ export default class ChatService {
     const { chats } = db;
     return await chats.findAll();
   }
+
+  async findOrCreate(contactId) {
+    const { chats } = db;
+    return await chats.findOrCreate({
+      where: { contactId },
+      default: {
+        contactId,
+      },
+    });
+  }
 }

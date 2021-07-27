@@ -21,19 +21,19 @@ export default class ContactController {
         await sendMessage(messageHelper["hola"], senderId);
         break;
       case "quiero un auto":
-        await sendMessage(messageHelper["hola"], senderId);
+        await sendMessage(messageHelper["auto"], senderId);
         break;
       case "grande":
-        await sendMessage(messageHelper["hola"], senderId);
+        await sendMessage(messageHelper["grande"], senderId);
         break;
       case "para mañana":
-        await sendMessage(messageHelper["hola"], senderId);
+        await sendMessage(messageHelper["mañana"], senderId);
         break;
       case "mañana":
-        await sendMessage(messageHelper["hola"], senderId);
+        await sendMessage(messageHelper["mañana"], senderId);
         break;
       default:
-        throw "No es una pregunta disponible";
+        await sendMessage(messageHelper["default"], senderId);
     }
   }
 }
