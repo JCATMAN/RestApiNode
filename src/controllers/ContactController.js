@@ -19,4 +19,8 @@ export default class ContactController {
     await this.contactService.findOrCreate(senderId);
     await this.messageController.sendMessage(message, senderId);
   }
+
+  async findContactBySenderId(senderId) {
+    return await this.contactService.findBySenderId(senderId);
+  }
 }

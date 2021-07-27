@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       time: {
         type: DataTypes.DATE,
       },
+      isSendByAdmin: {
+        type: DataTypes.BOOLEAN,
+        default: false,
+      },
       contactId: {
         type: DataTypes.INTEGER,
         allowNull: true,

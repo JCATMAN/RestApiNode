@@ -15,4 +15,11 @@ export default class ContactService {
       },
     });
   }
+
+  async findBySenderId(fullname) {
+    const { contacts } = db;
+    return await contacts.find({
+      where: { fullname },
+    });
+  }
 }
