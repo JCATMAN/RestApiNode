@@ -1,3 +1,4 @@
+import { Op } from "sequelize";
 import db from "../db/models";
 
 export default class ChatService {
@@ -12,6 +13,7 @@ export default class ChatService {
       where: { contactId },
       default: {
         contactId,
+        adminId,
       },
     });
   }

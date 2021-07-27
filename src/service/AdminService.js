@@ -5,4 +5,9 @@ export default class AdminService {
     const { admin } = db;
     return await admin.findAll();
   }
+
+  async findOne() {
+    const { admin } = db;
+    return await admin.find();
+  }
 }

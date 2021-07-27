@@ -20,4 +20,16 @@ router.get("/", async (_req, res, next) => {
   }
 });
 
+/** localhost:3002/api/admin/message */
+router.post("/message/:senderId", async (req, res, next) => {
+  try {
+    const controller = new AdminController();
+    const { message } = req.body;
+    const response = await controller.sendAdminMessage(message, senderId);
+    res.json(response);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;

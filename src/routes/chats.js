@@ -20,4 +20,16 @@ router.get("/", async (_req, res, next) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  try {
+    const controller = new ChatController();
+    const { contactId } = req.body;
+    const { adminId } = req.params;
+    const response = await controller.findChatWithMessages(contactId, adminId);
+    res.json(response);
+  } catch (error) {
+    next(error);
+  }
+});
+
 export default router;
