@@ -15,12 +15,13 @@ export default class ChatController {
     return await this.chatService.findAll();
   }
 
-  async findOrCreateChats(contactId) {
-    await this.chatService.findOrCreate(contactId);
+  async findOrCreateChats(contactId, adminId) {
+    return await this.chatService.findOrCreate(contactId, adminId);
   }
 
-  async findChatWithMessages(contactId) {
-    const chat = await this.findOrCreateChats(contactId);
+  async findChatWithMessages(contactId, adminId) {
+    const chat = await this.findOrCreateChats(contactId, adminId);
+    console.log({ chat });
     const messages = await this.messagesController.findAllMessagesByChatId(
       chat.id
     );

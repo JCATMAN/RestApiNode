@@ -20,7 +20,7 @@ router.get("/", async (_req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/:adminId", async (req, res, next) => {
   try {
     const controller = new ChatController();
     const { contactId } = req.body;

@@ -31,15 +31,15 @@ router.post("/", async (req, res, next) => {
     const contactController = new ContactController();
     const adminController = new AdminController();
     const chatController = new ChatController();
-    const contact = await contactController.findContactBySenderId(senderId);
+    const contact = await contactController.findOrCreate(senderId);
+    console.log({ contact });
     const admin = await adminController.findAdmin();
-    const chat = await chatController.findOrCreateChats(contact.id, admin.id);
+    const chat = await chatController.findOrCreateChats(contact[0].dataValues.id, admin.id);
     const response = await controller.findOrCreateContact(
       message,
       senderId,
-      contact.id,
       admin.id,
-      chat.id
+      chat[0].dataValues.id
     );
     res.json(response);
   } catch (error) {

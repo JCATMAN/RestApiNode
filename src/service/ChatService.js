@@ -7,7 +7,8 @@ export default class ChatService {
     return await chats.findAll();
   }
 
-  async findOrCreate(contactId) {
+  async findOrCreate(contactId, adminId) {
+    console.log({ contactId, adminId });
     const { chats } = db;
     return await chats.findOrCreate({
       where: { contactId },

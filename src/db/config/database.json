@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "rndxaueb",
-    "password": "KhzP3VjeQVjgwU8Dv8gswF-lsF2JTemo",
-    "database": "rndxaueb",
-    "host": "hattie.db.elephantsql.com",
-    "dialect": "postgres"
+    "username": "root",
+    "password": "root",
+    "database": "chatdb",
+    "host": "localhost",
+    "dialect": "mysql"
   },
   "test": {
     "username": "rndxaueb",

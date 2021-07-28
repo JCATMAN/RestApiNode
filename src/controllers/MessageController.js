@@ -16,21 +16,17 @@ export default class MessageController {
     return await this.messageService.findAll();
   }
 
-  async saveMessage(message, senderId, contactId, adminId, chatId) {
-    const contact = await this.contactController.findContactBySenderId(
-      senderId
-    );
-    const admin = await this.adminController.findAdmin();
-    const chat = await this.chatController.findOrCreateChats(
-      contact.id,
-      admin.id
-    );
+  async saveMessage(message, senderId, contactId, adminId, chatId, isSendByAdmin = false) {
+
+    console.log({ chatId });
+
     await this.messageService.create({
       message,
       contactId,
       adminId,
       chatId,
       time: new Date().toISOString(),
+      isSendByAdmin,
     });
   }
 
@@ -39,61 +35,109 @@ export default class MessageController {
       case "hola":
         await sendMessage(messageHelper["hola"], senderId);
         await this.saveMessage(
-          messageHelper["hola"],
+          message,
           senderId,
           contactId,
           adminId,
           chatId
+        );
+        await this.saveMessage(
+          messageHelper["hola"],
+          senderId,
+          contactId,
+          adminId,
+          chatId, 
+          true,
         );
         break;
       case "quiero un auto":
         await sendMessage(messageHelper["auto"], senderId);
         await this.saveMessage(
-          messageHelper["auto"],
+          message,
           senderId,
           contactId,
           adminId,
           chatId
+        );
+        await this.saveMessage(
+          messageHelper["auto"],
+          senderId,
+          contactId,
+          adminId,
+          chatId, 
+          true,
         );
         break;
       case "grande":
         await sendMessage(messageHelper["grande"], senderId);
         await this.saveMessage(
-          messageHelper["grande"],
+          message,
           senderId,
           contactId,
           adminId,
           chatId
+        );
+        await this.saveMessage(
+          messageHelper["grande"],
+          senderId,
+          contactId,
+          adminId,
+          chatId, 
+          true,
         );
         break;
       case "para mañana":
         await sendMessage(messageHelper["mañana"], senderId);
         await this.saveMessage(
-          messageHelper["mañana"],
+          message,
           senderId,
           contactId,
           adminId,
           chatId
+        );
+        await this.saveMessage(
+          messageHelper["mañana"],
+          senderId,
+          contactId,
+          adminId,
+          chatId, 
+          true,
         );
         break;
       case "mañana":
         await sendMessage(messageHelper["mañana"], senderId);
         await this.saveMessage(
-          messageHelper["mañana"],
+          message,
           senderId,
           contactId,
           adminId,
           chatId
         );
+        await this.saveMessage(
+          messageHelper["mañana"],
+          senderId,
+          contactId,
+          adminId,
+          chatId, 
+          true,
+        );
         break;
       default:
         await sendMessage(messageHelper["default"], senderId);
+        await this.saveMessage(
+          message,
+          senderId,
+          contactId,
+          adminId,
+          chatId
+        );
         await this.saveMessage(
           messageHelper["default"],
           senderId,
           contactId,
           adminId,
-          chatId
+          chatId, 
+          true,
         );
     }
   }

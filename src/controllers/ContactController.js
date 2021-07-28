@@ -15,12 +15,16 @@ export default class ContactController {
     return await this.contactService.findAll();
   }
 
-  async findOrCreateContact(message, senderId) {
-    await this.contactService.findOrCreate(senderId);
-    await this.messageController.sendMessage(message, senderId);
+  async findOrCreateContact(message, senderId, adminId, chatId) {
+    const contact = await this.contactService.findOrCreate(senderId);
+    return await this.messageController.sendMessage(message, senderId, contact[0].dataValues.id, adminId, chatId);
   }
 
   async findContactBySenderId(senderId) {
     return await this.contactService.findBySenderId(senderId);
+  }
+
+  async findOrCreate(senderId){
+    return await this.contactService.findOrCreate(senderId);
   }
 }

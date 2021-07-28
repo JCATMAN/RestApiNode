@@ -16,7 +16,7 @@ export default class ContactService {
     });
   }
 
-  async findBySenderId(fullname) {
+  async findBySenderIdfindOne(fullname) {
     const { contacts } = db;
     return await contacts.findOne({
       where: { fullname },
