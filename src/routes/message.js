@@ -1,6 +1,8 @@
 import express from "express";
 import MessageController from "../controllers/MessageController";
 import ContactController from "../controllers/ContactController";
+import AdminController from "../controllers/AdminController";
+import ChatController from "../controllers/ChatController";
 /**
  * This is about the controller of the internal routes
  * depends of the name of the router and it's just
@@ -26,7 +28,19 @@ router.post("/", async (req, res, next) => {
     const message = req.body.Body;
     const senderId = req.body.From;
     const controller = new ContactController();
-    const response = await controller.findOrCreateContact(message, senderId);
+    const contactController = new ContactController();
+    const adminController = new AdminController();
+    const chatController = new ChatController();
+    const contact = await contactController.findContactBySenderId(senderId);
+    const admin = await adminController.findAdmin();
+    const chat = await chatController.findOrCreateChats(contact.id, admin.id);
+    const response = await controller.findOrCreateContact(
+      message,
+      senderId,
+      contact.id,
+      admin.id,
+      chat.id
+    );
     res.json(response);
   } catch (error) {
     next(error);

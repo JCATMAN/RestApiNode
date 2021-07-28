@@ -8,6 +8,6 @@ export default class AdminService {
 
   async findOne() {
     const { admin } = db;
-    return await admin.find();
+    return await admin.findOne();
   }
 }
